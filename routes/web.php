@@ -12,12 +12,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
-
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
-    // Users Routes 
     $router->group(['prefix' => 'users'], function () use ($router) {
         $router->post('/',  ['uses' => 'V1\UsersController@Create']);
         $router->patch('/{id}',  ['uses' => 'V1\UsersController@Edit']);
