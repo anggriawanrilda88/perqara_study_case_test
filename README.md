@@ -28,12 +28,12 @@ this is repo for Perqara Company as assessment test
     </li>
     <li>Create unit tests for the API<br>
         <pre>
-            There is some unit testing created on folder: <br>
-            test/Feature/PostsCreateTest.php<br>
-            test/Feature/PostsDeleteTest.php<br>
-            test/Feature/PostsDetailTest.php<br>
-            test/Feature/PostsListTest.php<br>
-            test/Feature/PostsUpdateTest.php<br>
+            There is some unit testing created on folder: 
+                test/Feature/PostsCreateTest.php
+                test/Feature/PostsDeleteTest.php
+                test/Feature/PostsDetailTest.php
+                test/Feature/PostsListTest.php
+                test/Feature/PostsUpdateTest.php
             You can run unit test with command: ".\vendor\bin\phpunit"
         </pre>
     </li>
