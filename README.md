@@ -33,7 +33,8 @@ this is repo for Perqara Company as assessment test
                 test/Feature/PostsDeleteTest.php
                 test/Feature/PostsDetailTest.php
                 test/Feature/PostsListTest.php
-                test/Feature/PostsUpdateTest.php
+                test/Feature/PostsUpdateTest.php<br>
+                
             You can run unit test with command: ".\vendor\bin\phpunit"
         </pre>
     </li>
