@@ -27,14 +27,14 @@ class PostsDeleteTest extends TestCase
         // Assert the response status code
         $response->assertStatus(200);
 
-        if (count($response["data"]["data"]) !== 0) {
-            $response = $this->json('DELETE', '/api/posts/' . $response["data"]["data"][0]["id"], []);
+        if (count($response['data']['data']) !== 0) {
+            $response = $this->json('DELETE', '/api/posts/'.$response['data']['data'][0]['id'], []);
 
             // Assert the response status code
             $response->assertStatus(200);
         } else {
             $this->assertEquals(
-                $response["data"]["data"],
+                $response['data']['data'],
                 []
             );
         }

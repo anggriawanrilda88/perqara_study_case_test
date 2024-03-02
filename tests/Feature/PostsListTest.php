@@ -16,14 +16,14 @@ class PostsListTest extends TestCase
         // Assert the response status code
         $response->assertStatus(200);
 
-        if (count($response["data"]["data"]) !== 0) {
-            $this->assertIsInt($response["data"]["data"][0]["id"]);
-            $this->assertIsString($response["data"]["data"][0]["image"]);
-            $this->assertIsString($response["data"]["data"][0]["title"]);
-            $this->assertIsString($response["data"]["data"][0]["content"]);
+        if (count($response['data']['data']) !== 0) {
+            $this->assertIsInt($response['data']['data'][0]['id']);
+            $this->assertIsString($response['data']['data'][0]['image']);
+            $this->assertIsString($response['data']['data'][0]['title']);
+            $this->assertIsString($response['data']['data'][0]['content']);
         } else {
             $this->assertEquals(
-                $response["data"]["data"],
+                $response['data']['data'],
                 []
             );
         }

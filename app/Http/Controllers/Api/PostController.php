@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,6 +17,7 @@ class PostController extends Controller
      *     operationId="posts.index",
      *     tags={"Posts"},
      *     summary="Get all posts",
+     *
      *     @OA\Response(response=200, description="Successful operation"),
      *     @OA\Response(response=500, description="Internal server error")
      * )
@@ -26,19 +27,24 @@ class PostController extends Controller
      *     operationId="posts.store",
      *     tags={"Posts"},
      *     summary="Create a new post",
+     *
      *     @OA\RequestBody(
      *         required=true,
      *         description="Post data",
+     *
      *         @OA\MediaType(
      *             mediaType="multipart/form-data",
+     *
      *             @OA\Schema(
      *                 type="object",
+     *
      *                 @OA\Property(property="image", type="string", format="binary"),
      *                 @OA\Property(property="title", type="string"),
      *                 @OA\Property(property="content", type="string"),
      *             )
      *         )
      *     ),
+     *
      *     @OA\Response(response=201, description="Post created successfully"),
      *     @OA\Response(response=422, description="Validation error"),
      *     @OA\Response(response=500, description="Internal server error")
@@ -49,13 +55,16 @@ class PostController extends Controller
      *     operationId="posts.show",
      *     tags={"Posts"},
      *     summary="Get a specific post by ID",
+     *
      *     @OA\Parameter(
      *         name="post",
      *         in="path",
      *         required=true,
      *         description="Post ID",
+     *
      *         @OA\Schema(type="integer")
      *     ),
+     *
      *     @OA\Response(response=200, description="Successful operation"),
      *     @OA\Response(response=404, description="Post not found"),
      *     @OA\Response(response=500, description="Internal server error")
@@ -66,20 +75,26 @@ class PostController extends Controller
      *     operationId="posts.update",
      *     tags={"Posts"},
      *     summary="Update a specific post by ID",
+     *
      *     @OA\Parameter(
      *         name="post",
      *         in="path",
      *         required=true,
      *         description="Post ID",
+     *
      *         @OA\Schema(type="integer")
      *     ),
+     *
      *     @OA\RequestBody(
      *         required=true,
      *         description="Post data",
+     *
      *         @OA\MediaType(
      *             mediaType="multipart/form-data",
+     *
      *             @OA\Schema(
      *                 type="object",
+     *
      *                 @OA\Property(property="image", type="string", format="binary"),
      *                 @OA\Property(property="title", type="string"),
      *                 @OA\Property(property="content", type="string"),
@@ -87,6 +102,7 @@ class PostController extends Controller
      *             )
      *         )
      *     ),
+     *
      *     @OA\Response(response=200, description="Post updated successfully"),
      *     @OA\Response(response=404, description="Post not found"),
      *     @OA\Response(response=422, description="Validation error"),
@@ -98,13 +114,16 @@ class PostController extends Controller
      *     operationId="posts.destroy",
      *     tags={"Posts"},
      *     summary="Delete a specific post by ID",
+     *
      *     @OA\Parameter(
      *         name="post",
      *         in="path",
      *         required=true,
      *         description="Post ID",
+     *
      *         @OA\Schema(type="integer")
      *     ),
+     *
      *     @OA\Response(response=204, description="Post deleted successfully"),
      *     @OA\Response(response=404, description="Post not found"),
      *     @OA\Response(response=500, description="Internal server error")
@@ -123,9 +142,9 @@ class PostController extends Controller
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title'     => 'required',
-            'content'   => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required',
+            'content' => 'required',
         ]);
 
         //check if validation fails
@@ -139,9 +158,9 @@ class PostController extends Controller
 
         //create post
         $post = Post::create([
-            'image'     => $image->hashName(),
-            'title'     => $request->title,
-            'content'   => $request->content,
+            'image' => $image->hashName(),
+            'title' => $request->title,
+            'content' => $request->content,
         ]);
 
         //return response
@@ -151,7 +170,7 @@ class PostController extends Controller
     /**
      * show
      *
-     * @param  mixed $post
+     * @param  mixed  $post
      * @return void
      */
     public function show(Post $post)
@@ -163,17 +182,17 @@ class PostController extends Controller
     /**
      * update
      *
-     * @param  mixed $request
-     * @param  mixed $post
+     * @param  mixed  $request
+     * @param  mixed  $post
      * @return void
      */
     public function update(Request $request, Post $post)
     {
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'image'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title'     => 'required',
-            'content'   => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required',
+            'content' => 'required',
         ]);
 
         //check if validation fails
@@ -189,20 +208,20 @@ class PostController extends Controller
             $image->storeAs('public/posts', $image->hashName());
 
             //delete old image
-            Storage::delete('public/posts/' . $post->image);
+            Storage::delete('public/posts/'.$post->image);
 
             //update post with new image
             $post->update([
-                'image'     => $image->hashName(),
-                'title'     => $request->title,
-                'content'   => $request->content,
+                'image' => $image->hashName(),
+                'title' => $request->title,
+                'content' => $request->content,
             ]);
         } else {
 
             //update post without image
             $post->update([
-                'title'     => $request->title,
-                'content'   => $request->content,
+                'title' => $request->title,
+                'content' => $request->content,
             ]);
         }
 
@@ -213,13 +232,13 @@ class PostController extends Controller
     /**
      * destroy
      *
-     * @param  mixed $post
+     * @param  mixed  $post
      * @return void
      */
     public function destroy(Post $post)
     {
         //delete image
-        Storage::delete('public/posts/' . $post->image);
+        Storage::delete('public/posts/'.$post->image);
 
         //delete post
         $post->delete();

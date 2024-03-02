@@ -17,21 +17,21 @@ class PostsUpdateTest extends TestCase
         // Assert the response status code
         $response->assertStatus(200);
 
-        if (count($response["data"]["data"]) !== 0) {
-            $response = $this->json('POST', '/api/posts/' . $response["data"]["data"][0]["id"], [
-                "image" => "haha",
-                "title" => "Post 1",
-                "content" => "Post 1 Description",
-                "_method" => "PUT",
+        if (count($response['data']['data']) !== 0) {
+            $response = $this->json('POST', '/api/posts/'.$response['data']['data'][0]['id'], [
+                'image' => 'haha',
+                'title' => 'Post 1',
+                'content' => 'Post 1 Description',
+                '_method' => 'PUT',
             ]);
 
             // Assert the response status code
             $response->assertStatus(422);
-            $this->assertEquals($response['image'][0], "The image must be an image.");
-            $this->assertEquals($response['image'][1], "The image must be a file of type: jpeg, png, jpg, gif, svg.");
+            $this->assertEquals($response['image'][0], 'The image must be an image.');
+            $this->assertEquals($response['image'][1], 'The image must be a file of type: jpeg, png, jpg, gif, svg.');
         } else {
             $this->assertEquals(
-                $response["data"]["data"],
+                $response['data']['data'],
                 []
             );
         }
@@ -49,21 +49,21 @@ class PostsUpdateTest extends TestCase
         // Assert the response status code
         $response->assertStatus(200);
 
-        if (count($response["data"]["data"]) !== 0) {
-            $response = $this->json('POST', '/api/posts/' . $response["data"]["data"][0]["id"], [
-                "image" => $file,
-                "title" => "Post 1s",
-                "content" => "Post 1 Description",
-                "_method" => "PUT",
+        if (count($response['data']['data']) !== 0) {
+            $response = $this->json('POST', '/api/posts/'.$response['data']['data'][0]['id'], [
+                'image' => $file,
+                'title' => 'Post 1s',
+                'content' => 'Post 1 Description',
+                '_method' => 'PUT',
             ]);
 
             // Assert the response status code
             $response->assertStatus(200);
             $this->assertEquals($response['success'], true);
-            $this->assertEquals($response['message'], "Data Post Berhasil Diubah!");
+            $this->assertEquals($response['message'], 'Data Post Berhasil Diubah!');
         } else {
             $this->assertEquals(
-                $response["data"]["data"],
+                $response['data']['data'],
                 []
             );
         }

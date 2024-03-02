@@ -12,9 +12,11 @@ use Illuminate\Routing\Controller as BaseController;
  *      version="1.0.0",
  *      title="Perqara Study Case",
  *      description="Perqara Study Case Swagger OpenApi description",
+ *
  *      @OA\Contact(
  *          email="anggriawanrilda88@gmail.com"
  *      ),
+ *
  *     @OA\License(
  *         name="Apache 2.0",
  *         url="https://www.apache.org/licenses/LICENSE-2.0.html"

@@ -27,26 +27,26 @@ class PostsDetailTest extends TestCase
         // Assert the response status code
         $response->assertStatus(200);
 
-        if (count($response["data"]["data"]) !== 0) {
-            $response = $this->json('GET', '/api/posts/' . $response["data"]["data"][0]["id"], []);
+        if (count($response['data']['data']) !== 0) {
+            $response = $this->json('GET', '/api/posts/'.$response['data']['data'][0]['id'], []);
 
             // Assert the response status code
             $response->assertStatus(200);
 
-            if (count($response["data"]["data"]) !== 0) {
-                $this->assertIsInt($response["data"]["id"]);
-                $this->assertIsString($response["data"]["image"]);
-                $this->assertIsString($response["data"]["title"]);
-                $this->assertIsString($response["data"]["content"]);
+            if (count($response['data']['data']) !== 0) {
+                $this->assertIsInt($response['data']['id']);
+                $this->assertIsString($response['data']['image']);
+                $this->assertIsString($response['data']['title']);
+                $this->assertIsString($response['data']['content']);
             } else {
                 $this->assertEquals(
-                    $response["data"]["data"],
+                    $response['data']['data'],
                     []
                 );
             }
         } else {
             $this->assertEquals(
-                $response["data"]["data"],
+                $response['data']['data'],
                 []
             );
         }

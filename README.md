@@ -1,64 +1,45 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravelcom" target="_blank"><img src="https://rawgithubusercontentcom/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-redsvg" width="400"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://travis-ciorg/laravel/framework"><img src="https://travis-ciorg/laravel/frameworksvg" alt="Build Status"></a>
+<a href="https://packagistorg/packages/laravel/framework"><img src="https://imgshieldsio/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagistorg/packages/laravel/framework"><img src="https://imgshieldsio/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagistorg/packages/laravel/framework"><img src="https://imgshieldsio/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About This Repo
+this is repo for Perqara Company as assessment test
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Feature Implemented
+<ol>
+    <li>Every incoming and outgoing request must go through payload validation (data type, character length, etc)<br>
+        <pre>
+            GET             api/posts           postsindex     › Api\PostController@index  
+            POST            api/posts           postsstore     › Api\PostController@store  
+            GET             api/posts/{post}    postsshow      › Api\PostController@show  
+            POST            api/posts/{post}    postsupdate    › Api\PostController@update  
+            DELETE          api/posts/{post}    postsdestroy   › Api\PostController@destroy
+        </pre>
+    </li>
+    <li>Create documentation for the API (eg, using Swagger or similar)<br>
+        <pre>
+            For go to Swagger, access "http://localhost:<your_port>/api/documentation"
+        </pre>
+    </li>
+    <li>Create unit tests for the API<br>
+        <pre>
+            There is some unit testing created on folder: <br>
+            test/Feature/PostsCreateTest.php<br>
+            test/Feature/PostsDeleteTest.php<br>
+            test/Feature/PostsDetailTest.php<br>
+            test/Feature/PostsListTest.php<br>
+            test/Feature/PostsUpdateTest.php<br>
+            You can run unit test with command: ".\vendor\bin\phpunit"
+        </pre>
+    </li>
+    <li>Use a linter for code conventions and code quality verification<br>
+        <pre>
+            use this command to run linter: "./vendor/bin/pint"
+        </pre>
+    </li>
+</ol>
