@@ -42,4 +42,9 @@ this is repo for Perqara Company as assessment test
             use this command to run linter: "./vendor/bin/pint"
         </pre>
     </li>
+    <li>Migrate table into database with "php artisan migrate"<br>
+        <pre>
+            use this command to run linter: "./vendor/bin/pint"
+        </pre>
+    </li>
 </ol>
